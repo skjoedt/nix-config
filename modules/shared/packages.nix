@@ -12,6 +12,7 @@ in
 with pkgs; [
   # A
   atuin
+  awscli
   
   # B
   bat # Cat clone with syntax highlighting
@@ -48,6 +49,8 @@ with pkgs; [
   killall # Kill processes by name
   k9s
   kubectl
+  kubernetes-helm
+  kustomize
   k3d
 
   # L
@@ -86,9 +89,13 @@ with pkgs; [
   wget # File downloader
   watch
 
+  # Y
+  yamllint
+
   # Z
   zip # ZIP archive creator
   zsh-powerlevel10k # Zsh theme
   zsh-fzf-tab
   zsh-forgit
+  zsh-z
 ] ++ myFonts

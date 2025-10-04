@@ -36,6 +36,10 @@ let name = "Christian Skjødt";
         name = "forgit";
         src = "${pkgs.zsh-forgit}/share/zsh/zsh-forgit";
       }
+      {
+        name = "zsh-z";
+        src = "${pkgs.zsh-z}/share/zsh-z";
+      }
     ];
     initContent = lib.mkBefore ''
       if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then

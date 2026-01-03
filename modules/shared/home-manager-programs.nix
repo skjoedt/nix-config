@@ -57,6 +57,13 @@ let name = "Christian Skjødt";
       export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
       zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
       source <(carapace _carapace)
+
+      alias k='kubectl'
+
+      # Fix potential broken Homebrew completion symlinks
+      for completion in /opt/homebrew/share/zsh/site-functions/*; do
+        [[ -f "$completion" && -x "$completion:A" ]] || compdef _default "${completion:t}"
+      done
     '';
   };
 

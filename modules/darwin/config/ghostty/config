@@ -1,5 +1,0 @@
-# Ghostty configuration is managed by nix home manager
-
-theme = "catppuccin-frappe"
-font-size = 14
-window-padding-x = 2

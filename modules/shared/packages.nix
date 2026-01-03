@@ -88,6 +88,7 @@ with pkgs; [
   # W
   wget # File downloader
   watch
+  wakeonlan
 
   # Y
   yamllint

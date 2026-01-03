@@ -2,9 +2,6 @@
 
 {
 
-  ".config/ghostty/config" = {
-    text = builtins.readFile ./config/ghostty/config;
-  };
   ".config/ghostty/themes/catppuccin-frappe" = {
     text = builtins.readFile ./config/ghostty/themes/catppuccin-frappe.conf;
   };

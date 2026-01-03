@@ -16,10 +16,12 @@ in
     ../../modules/darwin/home-manager.nix
     ../../modules/shared
   ];
+
+  ids.gids.nixbld = 350;
   
   # Setup user, packages, programs
   nix = {
-    enable = false;
+    enable = true;
     package = pkgs.nix;
     settings = {
       trusted-users = [ "@admin" "${user}" ];

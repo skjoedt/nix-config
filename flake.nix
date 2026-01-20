@@ -51,15 +51,6 @@ outputs = { self, nixpkgs, home-manager, darwin, nix-homebrew, ... } @ inputs: l
         system = "aarch64-darwin";
         specialArgs = inputs // { inherit user; };
         modules = [
-          { # temp fix for https://github.com/nixos/nixpkgs/issues/476794
-            nixpkgs.overlays = [
-              (final: prev: {
-                nix = prev.nix.overrideAttrs (oldAttrs: {
-                  doCheck = false;
-                });
-              })
-            ];
-          }
           home-manager.darwinModules.home-manager
           nix-homebrew.darwinModules.nix-homebrew
           {

@@ -82,12 +82,14 @@ let name = "Christian Skjødt";
   git = {
     enable = true;
     ignores = [ "*.swp" ];
-    userName = name;
-    userEmail = email;
     lfs = {
       enable = true;
     };
-    extraConfig = {
+    settings = {
+      user = {
+        name = name;
+        email = email;
+      };
       init.defaultBranch = "main";
       core = {
 	    editor = "vim";
@@ -172,18 +174,18 @@ let name = "Christian Skjødt";
 
   ssh = {
     enable = true;
-    matchBlocks = {
-      #"github.com" = {
-      #  identitiesOnly = true;
-      #  identityFile = [
-      #    (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
-      #      "/home/${user}/.ssh/id_github"
-      #    )
-      #    (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
-      #      "/Users/${user}/.ssh/id_github"
-      #    )
-      #  ];
-      #};
+    enableDefaultConfig = false;
+    matchBlocks."*" = {
+      forwardAgent = false;
+      addKeysToAgent = "no";
+      compression = false;
+      serverAliveInterval = 0;
+      serverAliveCountMax = 3;
+      hashKnownHosts = false;
+      userKnownHostsFile = "~/.ssh/known_hosts";
+      controlMaster = "no";
+      controlPath = "~/.ssh/master-%r@%n:%p";
+      controlPersist = "no";
     };
   };
 

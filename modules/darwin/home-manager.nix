@@ -55,7 +55,7 @@ in
             (import ../shared/files.nix { inherit config pkgs; })
             (import ./files.nix { inherit user config pkgs; })
           ];
-          stateVersion = "25.05";
+          stateVersion = "25.11";
         };
         programs = lib.mkMerge [
           (import ../shared/home-manager-programs.nix { inherit config pkgs lib; })

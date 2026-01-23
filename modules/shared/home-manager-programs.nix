@@ -17,6 +17,11 @@ let name = "Christian Skjødt";
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
+    shellAliases = {
+      k = "kubectl";
+      "?" = "fabric -s -m claude-3-5-haiku-latest -p one-liner";
+      "??" = "fabric -s -m claude-3-7-sonnet-latest";
+    };
     plugins = [
       {
         name = "powerlevel10k";
@@ -58,8 +63,6 @@ let name = "Christian Skjødt";
       zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
       source <(carapace _carapace)
 
-      alias k='kubectl'
-
       # Fix potential broken Homebrew completion symlinks
       for completion in /opt/homebrew/share/zsh/site-functions/*; do
         [[ -f "$completion" && -x "$completion:A" ]] || compdef _default "${completion:t}"
@@ -76,7 +79,19 @@ let name = "Christian Skjødt";
       sync_frequency = "5m";
       sync_address = "https://api.atuin.sh";
       search_mode = "prefix";
+      history_filter = [
+        "pwd"
+      ];
     };
+  };
+
+  fabric-ai = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  opencode = {
+    enable = true;
   };
 
   git = {

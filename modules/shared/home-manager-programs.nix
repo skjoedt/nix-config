@@ -94,6 +94,10 @@ let name = "Christian Skjødt";
     enable = true;
   };
 
+  gh = {
+    enable = true;
+  };
+
   git = {
     enable = true;
     ignores = [ "*.swp" ];

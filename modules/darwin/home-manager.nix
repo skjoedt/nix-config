@@ -30,6 +30,9 @@ in
     #
     enable = true;
     casks  = pkgs.callPackage ./casks.nix {};
+    brews  = [
+      "lxc"
+    ];
     #masApps = {
     #  "hidden-bar"   = 1452453066;
     #  "wireguard"    = 1451685025;

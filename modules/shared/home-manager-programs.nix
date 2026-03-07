@@ -1,8 +1,14 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 let name = "Christian Skjødt";
     user = "skjoedt";
-    email = "skjoedt@dev.local"; in
+    email = "skjoedt@dev.local";
+    
+    nixpkgs-unstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    config.allowUnfree = true;
+    };
+  in
 {
 
   direnv = {
@@ -19,8 +25,8 @@ let name = "Christian Skjødt";
     enableCompletion = true;
     shellAliases = {
       k = "kubectl";
-      "?" = "fabric -s -m claude-3-5-haiku-latest -p one-liner";
-      "??" = "fabric -s -m claude-sonnet-4-5";
+      "?" = "fabric -s -m claude-haiku-4-5 -V anthropic -p one-liner";
+      "??" = "fabric -s -m claude-sonnet-4-6 -V anthropic";
     };
     plugins = [
       {
@@ -88,6 +94,7 @@ let name = "Christian Skjødt";
   fabric-ai = {
     enable = true;
     enableZshIntegration = true;
+    package = nixpkgs-unstable.fabric-ai;
   };
 
   opencode = {

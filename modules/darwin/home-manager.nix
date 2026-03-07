@@ -1,4 +1,4 @@
-{ config, pkgs, lib, home-manager, ... }:
+{ config, pkgs, lib, home-manager, inputs, ... }:
 
 let
   user = "skjoedt";
@@ -62,8 +62,8 @@ in
           stateVersion = "25.11";
         };
         programs = lib.mkMerge [
-          (import ../shared/home-manager-programs.nix { inherit config pkgs lib; })
-          (import ./home-manager-programs.nix { inherit config pkgs lib; })
+          (import ../shared/home-manager-programs.nix { inherit config pkgs lib inputs; })
+          (import ./home-manager-programs.nix { inherit config pkgs lib inputs; })
         ];
 
         services = lib.mkMerge [

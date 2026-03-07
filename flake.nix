@@ -66,9 +66,7 @@
       darwinConfigurations = {
         darwin-m1 = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
-          specialArgs = inputs // {
-            inherit user;
-          };
+          specialArgs = { inherit inputs user;};
           modules = [
             {
               # temp fix for https://github.com/nixos/nixpkgs/issues/476794
@@ -105,9 +103,7 @@
       nixosConfigurations = {
         vm_x86 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = inputs // {
-            inherit user;
-          };
+          specialArgs = { inherit inputs user;};
           modules = [
             home-manager.nixosModules.home-manager
             {

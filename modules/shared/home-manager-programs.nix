@@ -6,10 +6,10 @@ let name = "Christian Skjødt";
 {
 
   direnv = {
-      enable = true;
-      enableZshIntegration = true;
-      nix-direnv.enable = true;
-    };
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   zsh = {
     enable = true;
@@ -20,7 +20,7 @@ let name = "Christian Skjødt";
     shellAliases = {
       k = "kubectl";
       "?" = "fabric -s -m claude-3-5-haiku-latest -p one-liner";
-      "??" = "fabric -s -m claude-3-7-sonnet-latest";
+      "??" = "fabric -s -m claude-sonnet-4-5";
     };
     plugins = [
       {
@@ -111,12 +111,16 @@ let name = "Christian Skjødt";
       };
       init.defaultBranch = "main";
       core = {
-	    editor = "vim";
+        editor = "vim";
         autocrlf = "input";
       };
       pull.rebase = true;
       rebase.autoStash = true;
     };
+  };
+
+  keepassxc = {
+    enable = true;
   };
 
   vim = {
@@ -258,6 +262,6 @@ let name = "Christian Skjødt";
   eza = {
     enable = true;
     enableZshIntegration = true;
-    # TODO: add catpuccino theme 
+    # TODO: add catpuccino theme
   };
 }

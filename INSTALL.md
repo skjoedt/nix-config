@@ -10,3 +10,6 @@ These are some non-automated steps that needs to be done post-nix on MacOS.
 - [ ] Grant app permissions to Local Network for Chrome or Brave
 - [ ] Login to autin `atuin login -u <USERNAME>`
 - [ ] Open Amethyst and choose `start Amethyst on login`
+- [ ] Login to fabric `fabric -S`
+- [ ] Login to opencode `opencode auth`
+- [ ] Login to vscode github plugin(s)

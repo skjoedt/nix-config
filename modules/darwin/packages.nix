@@ -7,6 +7,4 @@ shared-packages ++ [
   restic
   appcleaner
   brave
-  docker
-  docker-compose
 ]

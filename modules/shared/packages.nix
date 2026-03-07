@@ -85,6 +85,9 @@ with pkgs; [
   unrar # RAR archive extractor
   unzip # ZIP archive extractor
 
+  # V
+  velero
+
   # W
   wget # File downloader
   watch

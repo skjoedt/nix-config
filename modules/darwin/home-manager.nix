@@ -30,6 +30,7 @@ in
     #
     enable = true;
     casks  = pkgs.callPackage ./casks.nix {};
+    # taps = []; # <- taps are managed in flake.nix as declarative homebrew taps.
     brews  = [
       "lxc"
     ];

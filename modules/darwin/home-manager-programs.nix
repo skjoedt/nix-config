@@ -10,7 +10,6 @@
         theme = "catppuccin-frappe";
         font-size = 14;
         window-padding-x = 2;
-        shell = "${pkgs.zsh}/bin/zsh";
       };
     };
 }

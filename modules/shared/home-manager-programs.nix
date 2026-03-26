@@ -15,6 +15,7 @@ let name = "Christian Skjødt";
     enable = true;
     enableZshIntegration = true;
     nix-direnv.enable = true;
+    mise.enable = true;
   };
 
   zsh = {
@@ -25,6 +26,8 @@ let name = "Christian Skjødt";
     enableCompletion = true;
     shellAliases = {
       k = "kubectl";
+      v = "nvim";
+      vi = "nvim";
       "?" = "fabric -s -m claude-haiku-4-5 -V anthropic -p one-liner";
       "??" = "fabric -s -m claude-sonnet-4-6 -V anthropic";
     };
@@ -127,6 +130,15 @@ let name = "Christian Skjødt";
   };
 
   keepassxc = {
+    enable = true;
+  };
+
+  mise = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  neovim = {
     enable = true;
   };
 

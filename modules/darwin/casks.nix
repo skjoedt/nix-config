@@ -14,6 +14,7 @@ _:
   "syncthing-app"
   "orbstack"
   "amethyst"
+  "gimp"
 
   # Productivity Tools
   "raycast"

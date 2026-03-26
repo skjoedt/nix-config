@@ -66,6 +66,7 @@ with pkgs; [
 
   # P
   pandoc # Document converter
+  postgresql
 
   # Q
 

@@ -4,6 +4,7 @@ _:
   # Development Tools
   "visual-studio-code"
   "ghostty"
+  "devpod"
 
   # Communication Tools
   "discord"

@@ -87,7 +87,17 @@ let name = "Christian Skjødt";
       auto_sync = true;
       sync_frequency = "5m";
       sync_address = "https://api.atuin.sh";
-      search_mode = "prefix";
+      #search_mode = "daemon-fuzzy";
+      search_mode = "fuzzy";
+      #daemon.autostart = true;
+      filter_mode = "host";
+      workspaces = true;
+      style = "compact";
+      inline_height = 30;
+      show_preview = true;
+      show_help = false;
+      show_tabs = false;
+      records = true;
       history_filter = [
         "pwd"
       ];

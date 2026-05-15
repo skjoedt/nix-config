@@ -11,7 +11,6 @@ let
 in
 with pkgs; [
   # A
-  atuin
   awscli
   
   # B

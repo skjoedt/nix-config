@@ -7,4 +7,7 @@ shared-packages ++ [
   restic
   appcleaner
   brave
+  rclone
+  ncdu
+  exiftool
 ]

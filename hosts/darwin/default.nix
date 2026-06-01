@@ -12,7 +12,7 @@ let
 
 in
 {
-  imports = [
+  imports = [ 
     ../../modules/darwin/home-manager.nix
     ../../modules/shared
   ];

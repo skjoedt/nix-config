@@ -1,5 +1,5 @@
 {
-  description = "My Nix Configuration for macOS and NixOS";
+  description = "My Nix Configuration for macOS and Linux";
 
   inputs = {
     # Primary nixpkgs repository
@@ -94,6 +94,19 @@
               };
             }
             ./hosts/darwin
+          ];
+        };
+      };
+
+      # Standalone home-manager configurations
+      # Available through 'home-manager switch --flake .#<name>'
+      homeConfigurations = {
+        "skjoedt@pc" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          extraSpecialArgs = { inherit inputs user; };
+          modules = [
+            ./hosts/pc
+            ./modules/shared/default.nix
           ];
         };
       };

@@ -18,7 +18,7 @@ with pkgs; [
   btop # System monitor and process viewer
 
   # C
-  carapace
+  carapace # Command argument completion generator
 
   # D
   direnv # Environment variable management per directory

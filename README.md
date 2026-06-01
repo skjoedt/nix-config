@@ -7,13 +7,25 @@ Declarative configuration of NixOS for all my machines
 Install nix 
 
 ```
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+sh <(curl -L https://nixos.org/nix/install) --daemon
 ```
 
-> [!IMPORTANT]
->
-> The installer will ask if you want to install Determinate Nix. Answer _No_ as it currently conflicts with `nix-darwin`.
+Update settings in /etc/nix/nix.conf
 
+```
+build-users-group = nixbld
+trusted-users = root skjoedt
+experimental-features = nix-command flakes
+```
+
+> [!NOTE]
+> These settings will be overriden by home manager
+
+Install home manager
+
+```
+nix run home-manager/release-25.11 -- init --switch
+```
 
 ## Getting started
 

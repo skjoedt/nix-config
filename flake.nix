@@ -37,6 +37,10 @@
       flake = false;
     };
 
+    hermes-agent = {
+      url = "github:NousResearch/hermes-agent";
+    };
+
   };
 
   outputs =
@@ -66,7 +70,7 @@
       darwinConfigurations = {
         darwin-m1 = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
-          specialArgs = { inherit inputs user;};
+          specialArgs = { inherit inputs user; };
           modules = [
             {
               # temp fix for https://github.com/nixos/nixpkgs/issues/476794
@@ -76,6 +80,7 @@
                     doCheck = false;
                   });
                 })
+                inputs.hermes-agent.overlays.default
               ];
             }
             home-manager.darwinModules.home-manager
@@ -116,7 +121,7 @@
       nixosConfigurations = {
         vm_x86 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs user;};
+          specialArgs = { inherit inputs user; };
           modules = [
             home-manager.nixosModules.home-manager
             {

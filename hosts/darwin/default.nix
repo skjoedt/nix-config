@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
-let 
+let
   user = "skjoedt";
   modifiers = {
     none = 0;
@@ -12,19 +12,22 @@ let
 
 in
 {
-  imports = [ 
+  imports = [
     ../../modules/darwin/home-manager.nix
     ../../modules/shared
   ];
 
   ids.gids.nixbld = 350;
-  
+
   # Setup user, packages, programs
   nix = {
     enable = true;
     package = pkgs.nix;
     settings = {
-      trusted-users = [ "@admin" "${user}" ];
+      trusted-users = [
+        "@admin"
+        "${user}"
+      ];
     };
     # Turn this on to make command line easier
     extraOptions = ''
@@ -59,7 +62,7 @@ in
 
         # Trackpad: enable tap to click for this user and for the login screen
         #"com.apple.mouse.tapBehavior" = 1;
-        
+
         # Speed
         "com.apple.trackpad.scaling" = 0.875;
 
@@ -82,178 +85,178 @@ in
       };
 
       CustomUserPreferences = {
-       # See Symbolic IDs here https://gist.github.com/mattrighetti/24b02c00c8a3a53966bc04f7305f99aa
-       # See ASCII mapping here https://gist.github.com/jimratliff/227088cc936065598bedfd91c360334e
-       "com.apple.symbolichotkeys" = {
-         AppleSymbolicHotKeys = {
-           # Disable 'Command + Space' for Spotlight Search
-           "64" = {
-             enabled = false;
-           };
-           # Disable 'Command + Option + Space' for Finder search window
-           "65" = {
-             enabled = false;
-           };
-           
-           # Space hotkeys
-           # Switch to Space 1 - Control + 1
-           "118" = {
-             enabled = 1;
-             value = {
-               parameters = [
-                 65535
-                 18
-                 modifiers.control
-               ];
-               type = "standard";
-             };
-           };
-           # Switch to Space 2 - Control + 2
-           "119" = {
-             enabled = 1;
-             value = {
-               parameters = [
-                 65535
-                 19
-                 modifiers.control
-               ];
-               type = "standard";
-             };
-           };
-           # Switch to Space 3 - Control + 3
-           "120" = {
-             enabled = 1;
-             value = {
-               parameters = [
-                 65535
-                 20
-                 modifiers.control
-               ];
-               type = "standard";
-             };
-           };
-           # Switch to Space 4 - Control + 4
-           "121" = {
-             enabled = 1;
-             value = {
-               parameters = [
-                 65535
-                 21
-                 modifiers.control
-               ];
-               type = "standard";
-             };
-           };
-           # Switch to Space 5 - Control + 5
-           "122" = {
-             enabled = 1;
-             value = {
-               parameters = [
-                 65535
-                 23
-                 modifiers.control
-               ];
-               type = "standard";
-             };
-           };
-           # Switch to Space 6 - Control + 6
-           "123" = {
-             enabled = 1;
-             value = {
-               parameters = [
-                 65535
-                 22
-                 modifiers.control
-               ];
-               type = "standard";
-             };
-           };
-           # Switch to Space 7 - Control + 7
-           "124" = {
-             enabled = 1;
-             value = {
-               parameters = [
-                 65535
-                 26
-                 modifiers.control
-               ];
-               type = "standard";
-             };
-           };
-           # Switch to Space 8 - Control + 8
-           "125" = {
-             enabled = 1;
-             value = {
-               parameters = [
-                 65535
-                 28
-                 modifiers.control
-               ];
-               type = "standard";
-             };
-           };
-           
-           # Disable key 175
-           "175" = {
-             enabled = false;
-           };
-           
-           # Disable 'Command + Option + D' (Turn Dock Hiding On/Off)
-           "52" = {
-             enabled = false;
-           };
+        # See Symbolic IDs here https://gist.github.com/mattrighetti/24b02c00c8a3a53966bc04f7305f99aa
+        # See ASCII mapping here https://gist.github.com/jimratliff/227088cc936065598bedfd91c360334e
+        "com.apple.symbolichotkeys" = {
+          AppleSymbolicHotKeys = {
+            # Disable 'Command + Space' for Spotlight Search
+            "64" = {
+              enabled = false;
+            };
+            # Disable 'Command + Option + Space' for Finder search window
+            "65" = {
+              enabled = false;
+            };
 
-           # Space navigation
-           # Move to the space on the left - Control + Left Arrow
-           "79" = {
-             enabled = 1;
-             value = {
-               parameters = [
-                 65535
-                 123
-                 8650752
-               ];
-               type = "standard";
-             };
-           };
-           # Move to the space on the left with window - Control + Shift + Left Arrow
-           "80" = {
-             enabled = 1;
-             value = {
-               parameters = [
-                 65535
-                 123
-                 8781824
-               ];
-               type = "standard";
-             };
-           };
-           # Move to the space on the right - Control + Right Arrow
-           "81" = {
-             enabled = 1;
-             value = {
-               parameters = [
-                 65535
-                 124
-                 8650752
-               ];
-               type = "standard";
-             };
-           };
-           # Move to the space on the right with window - Control + Shift + Right Arrow
-           "82" = {
-             enabled = 1;
-             value = {
-               parameters = [
-                 65535
-                 124
-                 8781824
-               ];
-               type = "standard";
-             };
-           };
-         };
-       };
+            # Space hotkeys
+            # Switch to Space 1 - option + 1
+            "118" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  18
+                  modifiers.option
+                ];
+                type = "standard";
+              };
+            };
+            # Switch to Space 2 - option + 2
+            "119" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  19
+                  modifiers.option
+                ];
+                type = "standard";
+              };
+            };
+            # Switch to Space 3 - option + 3
+            "120" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  20
+                  modifiers.option
+                ];
+                type = "standard";
+              };
+            };
+            # Switch to Space 4 - option + 4
+            "121" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  21
+                  modifiers.option
+                ];
+                type = "standard";
+              };
+            };
+            # Switch to Space 5 - option + 5
+            "122" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  23
+                  modifiers.option
+                ];
+                type = "standard";
+              };
+            };
+            # Switch to Space 6 - option + 6
+            "123" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  22
+                  modifiers.option
+                ];
+                type = "standard";
+              };
+            };
+            # Switch to Space 7 - option + 7
+            "124" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  26
+                  modifiers.option
+                ];
+                type = "standard";
+              };
+            };
+            # Switch to Space 8 - option + 8
+            "125" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  28
+                  modifiers.option
+                ];
+                type = "standard";
+              };
+            };
+
+            # Disable key 175
+            "175" = {
+              enabled = false;
+            };
+
+            # Disable 'Command + Option + D' (Turn Dock Hiding On/Off)
+            "52" = {
+              enabled = false;
+            };
+
+            # Space navigation
+            # Move to the space on the left - Option + Left Arrow
+            "79" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  123
+                  8912896
+                ];
+                type = "standard";
+              };
+            };
+            # Move to the space on the left with window - Option + Shift + Left Arrow
+            "80" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  123
+                  9043968
+                ];
+                type = "standard";
+              };
+            };
+            # Move to the space on the right - Option + Right Arrow
+            "81" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  124
+                  8912896
+                ];
+                type = "standard";
+              };
+            };
+            # Move to the space on the right with window - Option + Shift + Right Arrow
+            "82" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  124
+                  9043968
+                ];
+                type = "standard";
+              };
+            };
+          };
+        };
       };
 
       CustomSystemPreferences = {
@@ -280,7 +283,6 @@ in
         };
       };
 
-      
       finder = {
         # Show icons for hard drives, servers, and removable media on the desktop
         ShowExternalHardDrivesOnDesktop = false;
@@ -301,18 +303,18 @@ in
         # When performing a search, search the current folder by default
         FXDefaultSearchScope = "SCcf";
 
-        # Disable the warning when changing a file extension 
+        # Disable the warning when changing a file extension
         FXEnableExtensionChangeWarning = false;
 
         # Use list view in all Finder windows by default
         FXPreferredViewStyle = "Nlsv";
 
-        # Do not show path in title 
+        # Do not show path in title
         _FXShowPosixPathInTitle = false;
       };
 
       screencapture.type = "png"; # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
-      
+
       dock = {
         autohide = true;
         show-recents = false; # Don't show recent applications in Dock

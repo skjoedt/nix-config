@@ -11,7 +11,7 @@ let
 in
 with pkgs; [
   # A
-  awscli
+  awscli2
   
   # B
   bat # Cat clone with syntax highlighting

@@ -65,6 +65,9 @@ let name = "Christian Skjødt";
 
       export TERM=xterm-256color
 
+      autoload -Uz compinit
+      compinit
+
             
       # Remove history data we don't want to see
       export HISTIGNORE="pwd:ls:cd"
@@ -75,9 +78,9 @@ let name = "Christian Skjødt";
       source <(carapace _carapace)
 
       # Fix potential broken Homebrew completion symlinks
-      for completion in /opt/homebrew/share/zsh/site-functions/*; do
-        [[ -f "$completion" && -x "$completion:A" ]] || compdef _default "${completion:t}"
-      done
+      # for completion in /opt/homebrew/share/zsh/site-functions/*; do
+      #   [[ -f "$completion" && -x "$completion:A" ]] || compdef _default "${completion:t}"
+      # done
     '';
   };
 
@@ -106,6 +109,11 @@ let name = "Christian Skjødt";
     };
   };
 
+  kubecolor = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   opencode = {
     enable = true;
   };
@@ -132,6 +140,26 @@ let name = "Christian Skjødt";
       };
       pull.rebase = true;
       rebase.autoStash = true;
+      apply.whitespace = "fix";
+
+      alias = {
+        s = "status -s";
+        l = "log --pretty=oneline -n 20 --graph --abbrev-commit";
+        c = "clone --recursive";
+        p = "pull --recurse-submodules";
+        co = "checkout";
+        ca = "!git add -A && git commit -av";
+        amend = "commit --amend --reuse-message=HEAD";
+        tags = "tag -l";
+        br = "branch";
+        remotes = "remote --verbose";
+      };
+
+      "color \"status\"" = { 
+        added = "green";
+        changed = "yellow";
+        untracked = "red";
+      };
     };
   };
 
@@ -142,6 +170,7 @@ let name = "Christian Skjødt";
 
   neovim = {
     enable = true;
+    package = nixpkgs-unstable.neovim-unwrapped;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
@@ -171,7 +200,7 @@ let name = "Christian Skjødt";
       fd
     ];
 
-    extraConfig = ''
+    extraLuaConfig = ''
       -- Core Options
       vim.g.mapleader = " "
       vim.g.maplocalleader = " "
@@ -184,22 +213,6 @@ let name = "Christian Skjødt";
 
       -- Apply Colorscheme
       vim.cmd.colorscheme("catppuccin")
-
-      -- 1. Native Lazy Loading
-      vim.keymap.set('n', '<leader>ff', function()
-        vim.pack.add('fzf-lua') 
-        require('fzf-lua').files()
-      end, { desc = "Find Files" })
-
-      vim.pack.add('mini.nvim')
-      require('mini.surround').setup()
-      require('mini.pairs').setup()
-
-      -- 2. Treesitter
-      require('nvim-treesitter.configs').setup({
-        highlight = { enable = true },
-        indent = { enable = true },
-      })
     '';
   };
 

@@ -84,6 +84,7 @@ with pkgs; [
   # U
   unrar # RAR archive extractor
   unzip # ZIP archive extractor
+  uv
 
   # V
   velero

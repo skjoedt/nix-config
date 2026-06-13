@@ -116,6 +116,7 @@ let name = "Christian Skjødt";
 
   opencode = {
     enable = true;
+    package = nixpkgs-unstable.opencode;
   };
 
   gh = {

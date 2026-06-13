@@ -16,6 +16,7 @@ with pkgs; [
   # B
   bat # Cat clone with syntax highlighting
   btop # System monitor and process viewer
+  bun
 
   # C
   carapace # Command argument completion generator

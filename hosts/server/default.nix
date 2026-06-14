@@ -3,10 +3,10 @@
 {
   imports = [
     ../../modules/shared/home-manager.nix
-    ../../modules/pc/packages.nix
-    ../../modules/pc/files.nix
-    ../../modules/pc/home-manager-programs.nix
-    ../../modules/pc/home-manager-services.nix
+    ../../modules/server/packages.nix
+    ../../modules/server/files.nix
+    ../../modules/server/home-manager-programs.nix
+    ../../modules/server/home-manager-services.nix
   ];
 
   home = {

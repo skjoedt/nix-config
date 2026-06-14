@@ -1,6 +1,8 @@
-{ config, pkgs, lib, ... }:
+{ ... }:
 
 {
-  # Shared services
+  services = {
+    # Shared services
+  };
 
 }

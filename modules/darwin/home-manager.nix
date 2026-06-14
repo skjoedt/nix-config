@@ -1,4 +1,9 @@
-{ config, pkgs, lib, home-manager, inputs, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 let
   user = "skjoedt";
@@ -11,10 +16,10 @@ in
   ];
 
   users.users.${user} = {
-    name     = "${user}";
-    home     = "/Users/${user}";
+    name = "${user}";
+    home = "/Users/${user}";
     isHidden = false;
-    shell    = pkgs.zsh;
+    shell = pkgs.zsh;
   };
 
   homebrew = {
@@ -29,9 +34,9 @@ in
     # $ mas search <app name>
     #
     enable = true;
-    casks  = pkgs.callPackage ./casks.nix {};
+    casks = pkgs.callPackage ./casks.nix { };
     # taps = []; # <- taps are managed in flake.nix as declarative homebrew taps.
-    brews  = [
+    brews = [
       "lxc"
     ];
     #masApps = {
@@ -42,44 +47,37 @@ in
 
   home-manager = {
     useGlobalPkgs = true;
-    users.${user} = { pkgs, config, lib, ... }:
+    extraSpecialArgs = { inherit inputs user; };
+    users.${user} =
+      { pkgs, lib, ... }:
       {
+        imports = [
+          ../shared/home-manager.nix
+          ./packages.nix
+          ./files.nix
+          ./home-manager-programs.nix
+          ./home-manager-services.nix
+        ];
+
         home = {
           enableNixpkgsReleaseCheck = false;
-          # Add wallpaperScript to packages
-          packages = (pkgs.callPackage ./packages.nix {}) ++ [ wallpaperScript ];
+          packages = [ wallpaperScript ];
 
-          # Add activation script to set the wallpaper
           activation = {
-            setWallpaper = lib.hm.dag.entryAfter ["writeBoundary"] ''
+            setWallpaper = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
               $DRY_RUN_CMD ${wallpaperScript}/bin/set-wallpaper-script
             '';
           };
-          file = lib.mkMerge [
-            (import ../shared/files.nix { inherit config pkgs; })
-            (import ./files.nix { inherit user config pkgs; })
-          ];
           stateVersion = "25.11";
         };
-        programs = lib.mkMerge [
-          (import ../shared/home-manager-programs.nix { inherit config pkgs lib inputs; })
-          (import ./home-manager-programs.nix { inherit config pkgs lib inputs; })
-        ];
-
-        services = lib.mkMerge [
-          (import ../shared/home-manager-services.nix { inherit config pkgs lib; })
-          (import ./home-manager-services.nix { inherit config pkgs lib; })
-        ];
-
-        manual.manpages.enable = false;
       };
   };
 
   # Fully declarative dock using the latest from Nix Stor
   local.dock = {
-    enable   = true;
+    enable = true;
     username = user;
-    entries  = [
+    entries = [
       { path = "/Applications/Google Chrome.app/"; }
       { path = "/Applications/Apps.app/"; }
       { path = "/Applications/Ghostty.app/"; }
@@ -89,4 +87,3 @@ in
     ];
   };
 }
-

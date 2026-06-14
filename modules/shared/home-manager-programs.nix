@@ -1,24 +1,30 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
-let name = "Christian Skjødt";
-    user = "skjoedt";
-    email = "skjoedt@dev.local";
-    
-    nixpkgs-unstable = import inputs.nixpkgs-unstable {
+let
+  name = "Christian Skjødt";
+  user = "skjoedt";
+  email = "skjoedt@dev.local";
+
+  nixpkgs-unstable = import inputs.nixpkgs-unstable {
     inherit (pkgs.stdenv.hostPlatform) system;
     config.allowUnfree = true;
-    };
-  in
+  };
+in
 {
 
-  direnv = {
+  programs.direnv = {
     enable = true;
     enableZshIntegration = true;
     nix-direnv.enable = true;
     mise.enable = true;
   };
 
-  zsh = {
+  programs.zsh = {
     enable = true;
     autocd = false;
     autosuggestion.enable = true;
@@ -68,7 +74,6 @@ let name = "Christian Skjødt";
       autoload -Uz compinit
       compinit
 
-            
       # Remove history data we don't want to see
       export HISTIGNORE="pwd:ls:cd"
       export HISTCONTROL=ignorespace
@@ -79,12 +84,12 @@ let name = "Christian Skjødt";
 
       # Fix potential broken Homebrew completion symlinks
       # for completion in /opt/homebrew/share/zsh/site-functions/*; do
-      #   [[ -f "$completion" && -x "$completion:A" ]] || compdef _default "${completion:t}"
+      #   [[ -f "$completion" && -x "$completion:A" ]] || compdef _default "''${completion:t}"
       # done
     '';
   };
 
-  atuin = {
+  programs.atuin = {
     enable = true;
     enableZshIntegration = true;
     daemon.enable = true;
@@ -109,21 +114,21 @@ let name = "Christian Skjødt";
     };
   };
 
-  kubecolor = {
+  programs.kubecolor = {
     enable = true;
     enableZshIntegration = true;
   };
 
-  opencode = {
+  programs.opencode = {
     enable = true;
     package = nixpkgs-unstable.opencode;
   };
 
-  gh = {
+  programs.gh = {
     enable = true;
   };
 
-  git = {
+  programs.git = {
     enable = true;
     ignores = [ "*.swp" ];
     lfs = {
@@ -156,7 +161,7 @@ let name = "Christian Skjødt";
         remotes = "remote --verbose";
       };
 
-      "color \"status\"" = { 
+      "color \"status\"" = {
         added = "green";
         changed = "yellow";
         untracked = "red";
@@ -164,12 +169,12 @@ let name = "Christian Skjødt";
     };
   };
 
-  mise = {
+  programs.mise = {
     enable = true;
     enableZshIntegration = true;
   };
 
-  neovim = {
+  programs.neovim = {
     enable = true;
     package = nixpkgs-unstable.neovim-unwrapped;
     defaultEditor = true;
@@ -217,8 +222,7 @@ let name = "Christian Skjødt";
     '';
   };
 
-
-  ssh = {
+  programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
     matchBlocks."*" = {
@@ -235,7 +239,7 @@ let name = "Christian Skjødt";
     };
   };
 
-  fzf = {
+  programs.fzf = {
     enable = true;
     enableZshIntegration = true;
     colors = {
@@ -256,7 +260,7 @@ let name = "Christian Skjødt";
     };
   };
 
-  tmux = {
+  programs.tmux = {
     enable = false;
     shell = "${pkgs.zsh}/bin/zsh";
     sensibleOnTop = false;
@@ -336,15 +340,15 @@ let name = "Christian Skjødt";
       set -g window-status-separator ""
       set -gw automatic-rename on
       set -gw automatic-rename-format '#{b:pane_current_path}'
-            
+
       # Darwin-specific fix for tmux 3.5a with sensible plugin
       # This MUST be at the very end of the config
       set -g default-command "$SHELL"
-      '';
-    };
+    '';
+  };
   # TODO: Some of the ALT bindings don't work on darwin
 
-  eza = {
+  programs.eza = {
     enable = true;
     enableZshIntegration = true;
     theme = ''

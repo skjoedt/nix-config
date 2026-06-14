@@ -1,8 +1,7 @@
-{ config, pkgs, lib, inputs,... }:
+{ ... }:
 
 {
-
-  ghostty = {
+  programs.ghostty = {
     enable = true;
     settings = {
       theme = "catppuccin-frappe";
@@ -23,7 +22,10 @@
       "cursor-style-blink" = false;
 
       # Shell integration features
-      "shell-integration-features" = [ "no-cursor" "ssh-env" ];
+      "shell-integration-features" = [
+        "no-cursor"
+        "ssh-env"
+      ];
 
       # Keybinds (kept the helpful Omarchy copy/paste ones)
       keybind = [
@@ -67,7 +69,7 @@
   #   windowManager.hyprland = {
   #     enable = true;
   #     package = null;
-      
+
   #   };
   # };
 }

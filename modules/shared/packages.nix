@@ -1,107 +1,114 @@
 { pkgs, ... }:
 let
-  myPython = pkgs.python3.withPackages (ps: with ps; [
-    pip
-    virtualenv
-    requests
-    pyyaml
-  ]);
+  myPython = pkgs.python3.withPackages (
+    ps: with ps; [
+      pip
+      virtualenv
+      requests
+      pyyaml
+    ]
+  );
 
   myFonts = import ./fonts.nix { inherit pkgs; };
 in
-with pkgs; [
-  # A
-  awscli2
-  
-  # B
-  bat # Cat clone with syntax highlighting
-  btop # System monitor and process viewer
-  bun
+{
+  home.packages =
+    (with pkgs; [
+      # A
+      awscli2
 
-  # C
-  carapace # Command argument completion generator
+      # B
+      bat # Cat clone with syntax highlighting
+      btop # System monitor and process viewer
+      bun
 
-  # D
-  direnv # Environment variable management per directory
-  devenv
+      # C
+      carapace # Command argument completion generator
 
-  # E
-  eza
+      # D
+      direnv # Environment variable management per directory
+      devenv
+      doggo
 
-  # F
-  fzf # Fuzzy finder
+      # E
+      eza
 
-  # G
-  gh # GitHub CLI
-  glow # Markdown renderer for terminal
-  gnupg # GNU Privacy Guard
+      # F
+      fzf # Fuzzy finder
 
-  # H
-  htop # Interactive process viewer
+      # G
+      gh # GitHub CLI
+      glow # Markdown renderer for terminal
+      gnupg # GNU Privacy Guard
 
-  # I
-  iftop # Network bandwidth monitor
+      # H
+      htop # Interactive process viewer
 
-  # J
-  jq # JSON processor
+      # I
+      iftop # Network bandwidth monitor
 
-  # K
-  killall # Kill processes by name
-  k9s
-  kubectl
-  kubernetes-helm
-  kustomize
-  k3d
+      # J
+      jq # JSON processor
 
-  # L
+      # K
+      killall # Kill processes by name
+      k9s
+      kubectl
+      kubernetes-helm
+      kustomize
+      k3d
 
-  # M
-  myPython # Custom Python with packages
+      # L
 
-  # N
-  ncdu # Disk space utility
-  nixfmt-rfc-style
+      # M
+      myPython # Custom Python with packages
 
-  # O
+      # N
+      ncdu # Disk space utility
+      nixfmt-rfc-style
 
-  # P
-  pandoc # Document converter
-  postgresql
+      # O
 
-  # Q
+      # P
+      pandoc # Document converter
+      postgresql
 
-  # R
+      # Q
 
-  # S
-  sqlite # SQL database engine
+      # R
 
-  # T
-  terraform # Infrastructure as code tool
-  terraform-ls # Terraform language server
-  tflint # Terraform linter
-  tmux # Terminal multiplexer
-  tree # Directory tree viewer
+      # S
+      sqlite # SQL database engine
 
-  # U
-  unrar # RAR archive extractor
-  unzip # ZIP archive extractor
-  uv
+      # T
+      terraform # Infrastructure as code tool
+      terraform-ls # Terraform language server
+      tflint # Terraform linter
+      tmux # Terminal multiplexer
+      tree # Directory tree viewer
 
-  # V
-  velero
+      # U
+      unrar # RAR archive extractor
+      unzip # ZIP archive extractor
+      uv
 
-  # W
-  wget # File downloader
-  watch
-  wakeonlan
+      # V
+      velero
 
-  # Y
-  yamllint
+      # W
+      wget # File downloader
+      watch
+      wakeonlan
 
-  # Z
-  zip # ZIP archive creator
-  zsh-powerlevel10k # Zsh theme
-  zsh-fzf-tab
-  zsh-forgit
-  zsh-z
-] ++ myFonts
+      # Y
+      yamllint
+
+      # Z
+      zip # ZIP archive creator
+      zsh-powerlevel10k # Zsh theme
+      zsh-fzf-tab
+      zsh-forgit
+      zsh-z
+    ])
+    ++ myFonts;
+}

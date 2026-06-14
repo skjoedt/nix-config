@@ -71,7 +71,6 @@
             allowInsecure = false;
             allowUnsupportedSystem = true;
           };
-          overlays = import ./overlays { inherit inputs; };
         };
       mkApp =
         pkgs: name: text:

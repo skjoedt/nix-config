@@ -28,7 +28,8 @@ in
       # D
       direnv # Environment variable management per directory
       devenv
-      doggo
+      dig # DNS lookup utility
+      doggo # DNS client
 
       # E
       eza
@@ -53,6 +54,7 @@ in
       # K
       killall # Kill processes by name
       k9s
+      ktop
       kubectl
       kubernetes-helm
       kustomize

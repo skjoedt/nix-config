@@ -36,8 +36,8 @@ in
       c = "opencode";
       ls = "eza -lh --group-directories-first --icons=auto";
       lt = "eza --tree --level=2 --long --icons --git";
-      "?" = "opencode run --model github-copilot/gpt-5-mini 'respond in short'";
-      "??" = "opencode run --model github-copilot/claude-sonnet-4.6";
+      "?" = "opencode run --model openai/gpt-5.4-mini 'respond in short'";
+      "??" = "opencode run --model openai/gpt-5.5";
     };
     plugins = [
       {

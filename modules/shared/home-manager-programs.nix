@@ -63,30 +63,32 @@ in
         src = "${pkgs.zsh-z}/share/zsh-z";
       }
     ];
-    initContent = lib.mkBefore ''
-      if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
-        . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-        . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
-      fi
+    initContent = lib.mkMerge [
+      (lib.mkBefore ''
+        if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
+          . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+          . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+        fi
 
-      export TERM=xterm-256color
+        export TERM=xterm-256color
 
-      autoload -Uz compinit
-      compinit
+        # Remove history data we don't want to see
+        export HISTIGNORE="pwd:ls:cd"
+        export HISTCONTROL=ignorespace
+      '')
 
-      # Remove history data we don't want to see
-      export HISTIGNORE="pwd:ls:cd"
-      export HISTCONTROL=ignorespace
+      (lib.mkAfter ''
+        export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+        zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+        zstyle ':fzf-tab:*' query-string prefix
+        source <(carapace _carapace)
 
-      export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
-      zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-      source <(carapace _carapace)
-
-      # Fix potential broken Homebrew completion symlinks
-      # for completion in /opt/homebrew/share/zsh/site-functions/*; do
-      #   [[ -f "$completion" && -x "$completion:A" ]] || compdef _default "''${completion:t}"
-      # done
-    '';
+        # Fix potential broken Homebrew completion symlinks
+        # for completion in /opt/homebrew/share/zsh/site-functions/*; do
+        #   [[ -f "$completion" && -x "$completion:A" ]] || compdef _default "''${completion:t}"
+        # done
+      '')
+    ];
   };
 
   programs.atuin = {

@@ -37,10 +37,6 @@
       flake = false;
     };
 
-    hermes-agent = {
-      url = "github:NousResearch/hermes-agent";
-    };
-
   };
 
   outputs =
@@ -139,9 +135,6 @@
           system = "aarch64-darwin";
           specialArgs = { inherit inputs user; };
           modules = [
-            {
-              nixpkgs.overlays = import ./overlays { inherit inputs; };
-            }
             home-manager.darwinModules.home-manager
             nix-homebrew.darwinModules.nix-homebrew
             {

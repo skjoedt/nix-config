@@ -9,6 +9,5 @@
     rclone
     ncdu
     exiftool
-    hermes-agent
   ];
 }

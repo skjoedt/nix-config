@@ -14,7 +14,7 @@ _:
   "appcleaner"
   "syncthing-app"
   "orbstack"
-  "amethyst"
+  # "amethyst" # Disabled while migrating to AeroSpace.
   "gimp"
 
   # Productivity Tools

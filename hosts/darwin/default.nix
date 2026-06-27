@@ -209,7 +209,7 @@ in
             # Space navigation
             # Move to the space on the left - Option + Left Arrow
             "79" = {
-              enabled = 1;
+              enabled = 0;
               value = {
                 parameters = [
                   65535
@@ -221,7 +221,7 @@ in
             };
             # Move to the space on the left with window - Option + Shift + Left Arrow
             "80" = {
-              enabled = 1;
+              enabled = 0;
               value = {
                 parameters = [
                   65535
@@ -233,7 +233,7 @@ in
             };
             # Move to the space on the right - Option + Right Arrow
             "81" = {
-              enabled = 1;
+              enabled = 0;
               value = {
                 parameters = [
                   65535
@@ -245,7 +245,7 @@ in
             };
             # Move to the space on the right with window - Option + Shift + Right Arrow
             "82" = {
-              enabled = 1;
+              enabled = 0;
               value = {
                 parameters = [
                   65535

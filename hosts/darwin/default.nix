@@ -98,10 +98,43 @@ in
               enabled = false;
             };
 
+            # Disable Mission Control, App Expose, Desktop, and Spaces activation shortcuts.
+            "32" = {
+              enabled = false;
+            };
+            "33" = {
+              enabled = false;
+            };
+            "34" = {
+              enabled = false;
+            };
+            "35" = {
+              enabled = false;
+            };
+            "36" = {
+              enabled = false;
+            };
+            "37" = {
+              enabled = false;
+            };
+            "75" = {
+              enabled = false;
+            };
+            "76" = {
+              enabled = false;
+            };
+            "83" = {
+              enabled = false;
+            };
+            "85" = {
+              enabled = false;
+            };
+
             # Space hotkeys
+            # Disabled: AeroSpace owns Option + 1..0 for its own workspaces.
             # Switch to Space 1 - option + 1
             "118" = {
-              enabled = 1;
+              enabled = false;
               value = {
                 parameters = [
                   65535
@@ -113,7 +146,7 @@ in
             };
             # Switch to Space 2 - option + 2
             "119" = {
-              enabled = 1;
+              enabled = false;
               value = {
                 parameters = [
                   65535
@@ -125,7 +158,7 @@ in
             };
             # Switch to Space 3 - option + 3
             "120" = {
-              enabled = 1;
+              enabled = false;
               value = {
                 parameters = [
                   65535
@@ -137,7 +170,7 @@ in
             };
             # Switch to Space 4 - option + 4
             "121" = {
-              enabled = 1;
+              enabled = false;
               value = {
                 parameters = [
                   65535
@@ -149,7 +182,7 @@ in
             };
             # Switch to Space 5 - option + 5
             "122" = {
-              enabled = 1;
+              enabled = false;
               value = {
                 parameters = [
                   65535
@@ -161,7 +194,7 @@ in
             };
             # Switch to Space 6 - option + 6
             "123" = {
-              enabled = 1;
+              enabled = false;
               value = {
                 parameters = [
                   65535
@@ -173,7 +206,7 @@ in
             };
             # Switch to Space 7 - option + 7
             "124" = {
-              enabled = 1;
+              enabled = false;
               value = {
                 parameters = [
                   65535
@@ -185,7 +218,7 @@ in
             };
             # Switch to Space 8 - option + 8
             "125" = {
-              enabled = 1;
+              enabled = false;
               value = {
                 parameters = [
                   65535
@@ -257,6 +290,28 @@ in
             };
           };
         };
+
+        # Disable native Mission Control/Spaces gestures; AeroSpace owns workspaces.
+        "com.apple.AppleMultitouchTrackpad" = {
+          TrackpadThreeFingerHorizSwipeGesture = 0;
+          TrackpadFourFingerHorizSwipeGesture = 0;
+          TrackpadThreeFingerVertSwipeGesture = 0;
+          TrackpadFourFingerVertSwipeGesture = 0;
+        };
+        "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
+          TrackpadThreeFingerHorizSwipeGesture = 0;
+          TrackpadFourFingerHorizSwipeGesture = 0;
+          TrackpadThreeFingerVertSwipeGesture = 0;
+          TrackpadFourFingerVertSwipeGesture = 0;
+        };
+        "com.apple.AppleMultitouchMouse" = {
+          MouseTwoFingerHorizSwipeGesture = 0;
+          MouseTwoFingerDoubleTapGesture = 0;
+        };
+        "com.apple.driver.AppleBluetoothMultitouch.mouse" = {
+          MouseTwoFingerHorizSwipeGesture = 0;
+          MouseTwoFingerDoubleTapGesture = 0;
+        };
       };
 
       CustomSystemPreferences = {
@@ -327,7 +382,7 @@ in
         show-process-indicators = true; # Show indicator lights for open applications in the Dock
         launchanim = false; # Don't animate opening applications from the Dock
         expose-animation-duration = 0.1; # Speed up Mission Control animations
-        expose-group-apps = false; # Don't group windows by application in Mission Control (i.e. use the old Exposé behavior instead)
+        expose-group-apps = true; # AeroSpace workaround: Mission Control previews behave better when grouped by app
         dashboard-in-overlay = true; # Don't show Dashboard as a Space
         mru-spaces = false; # Don't automatically rearrange Spaces based on most recent use
         autohide-delay = 0.0; # Remove the auto-hiding Dock delay
@@ -353,7 +408,7 @@ in
         wvous-br-corner = 1;
       };
 
-      spaces.spans-displays = false;
+      spaces.spans-displays = true; # Disable "Displays have separate Spaces" for AeroSpace stability
 
       #trackpad = {
       #  Clicking = true;

@@ -1,7 +1,11 @@
-{ ... }:
+{ pkgs, inputs, ... }:
 
 let
   aerospaceConfig = builtins.fromTOML (builtins.readFile ./config/aerospace/config.toml);
+  nixpkgs-unstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    config.allowUnfree = true;
+  };
 in
 
 {
@@ -9,6 +13,7 @@ in
 
   programs.aerospace = {
     enable = true;
+    package = nixpkgs-unstable.aerospace;
     launchd.enable = true;
     userSettings = aerospaceConfig;
   };
@@ -20,6 +25,7 @@ in
       theme = "catppuccin-frappe";
       font-size = 14;
       window-padding-x = 2;
+      quit-after-last-window-closed = true;
     };
   };
 }

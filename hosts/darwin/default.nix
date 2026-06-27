@@ -291,18 +291,19 @@ in
           };
         };
 
-        # Disable native Mission Control/Spaces gestures; AeroSpace owns workspaces.
+        # Disable native horizontal Spaces gestures; AeroSpace owns workspaces.
+        # Keep vertical swipes for native Mission Control overview.
         "com.apple.AppleMultitouchTrackpad" = {
           TrackpadThreeFingerHorizSwipeGesture = 0;
           TrackpadFourFingerHorizSwipeGesture = 0;
-          TrackpadThreeFingerVertSwipeGesture = 0;
-          TrackpadFourFingerVertSwipeGesture = 0;
+          TrackpadThreeFingerVertSwipeGesture = 2;
+          TrackpadFourFingerVertSwipeGesture = 2;
         };
         "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
           TrackpadThreeFingerHorizSwipeGesture = 0;
           TrackpadFourFingerHorizSwipeGesture = 0;
-          TrackpadThreeFingerVertSwipeGesture = 0;
-          TrackpadFourFingerVertSwipeGesture = 0;
+          TrackpadThreeFingerVertSwipeGesture = 2;
+          TrackpadFourFingerVertSwipeGesture = 2;
         };
         "com.apple.AppleMultitouchMouse" = {
           MouseTwoFingerHorizSwipeGesture = 0;

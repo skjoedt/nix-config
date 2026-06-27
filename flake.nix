@@ -36,6 +36,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    homebrew-mediosz = {
+      url = "github:MediosZ/homebrew-tap";
+      flake = false;
+    };
 
   };
 
@@ -145,6 +149,7 @@
                   "homebrew/homebrew-core" = inputs.homebrew-core;
                   "homebrew/homebrew-cask" = inputs.homebrew-cask;
                   "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
+                  "mediosz/homebrew-tap" = inputs.homebrew-mediosz;
                 };
                 mutableTaps = false;
                 autoMigrate = true;

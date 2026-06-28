@@ -94,90 +94,111 @@ on-mode-changed = []
 
     # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
-    # App launchers, translated from Omarchy's Super bindings to Alt.
-    alt-enter = 'exec-and-forget open -na Ghostty'
-    alt-b = 'exec-and-forget open -na "Google Chrome"'
-    alt-space = 'exec-and-forget open -a Raycast'
-    alt-shift-f = 'exec-and-forget open -a Finder'
-    alt-shift-n = 'exec-and-forget open -a "Visual Studio Code"'
+    cmd-alt-ctrl-enter = 'exec-and-forget open -na Ghostty'
+    cmd-alt-ctrl-b = 'exec-and-forget open -na "Google Chrome"'
+    cmd-alt-ctrl-space = 'exec-and-forget open -a Raycast'
+    cmd-alt-ctrl-e = 'exec-and-forget open -a Finder'
+    cmd-alt-ctrl-n = 'exec-and-forget open -a "Visual Studio Code"'
 
-    # Window and layout controls.
-    alt-w = 'close --quit-if-last-window'
-    alt-j = 'split opposite'
-    alt-t = 'layout floating tiling'
-    alt-f = 'fullscreen'
-    alt-ctrl-f = 'fullscreen --no-outer-gaps'
-    alt-l = 'layout tiles horizontal vertical'
-    alt-slash = 'layout tiles horizontal vertical'
+    cmd-alt-ctrl-w = 'close --quit-if-last-window'
+    cmd-alt-ctrl-j = 'split opposite'
+    cmd-alt-ctrl-t = 'layout floating tiling'
+    cmd-alt-ctrl-f = 'fullscreen'
+    cmd-alt-ctrl-g = 'fullscreen --no-outer-gaps'
+    cmd-alt-ctrl-l = 'layout tiles horizontal vertical'
+    cmd-alt-ctrl-slash = 'layout tiles horizontal vertical'
 
-    # Focus windows with Alt + arrows, like Omarchy's Super + arrows.
-    alt-left = 'focus left'
-    alt-right = 'focus right'
-    alt-up = 'focus up'
-    alt-down = 'focus down'
+    cmd-alt-ctrl-left = 'focus left'
+    cmd-alt-ctrl-right = 'focus right'
+    cmd-alt-ctrl-up = 'focus up'
+    cmd-alt-ctrl-down = 'focus down'
+    cmd-alt-ctrl-shift-left = 'move left'
+    cmd-alt-ctrl-shift-right = 'move right'
+    cmd-alt-ctrl-shift-up = 'move up'
+    cmd-alt-ctrl-shift-down = 'move down'
 
-    # Swap windows directionally, like Omarchy's Super + Shift + arrows.
-    alt-shift-left = 'swap left'
-    alt-shift-right = 'swap right'
-    alt-shift-up = 'swap up'
-    alt-shift-down = 'swap down'
+    cmd-alt-ctrl-s = 'mode swap'
+    cmd-alt-ctrl-a = 'mode join'
+    cmd-alt-ctrl-m = 'mode move'
+    cmd-alt-ctrl-r = 'mode monitor'
 
-    # Nest the focused window with the neighboring node in that direction.
-    alt-ctrl-left = 'join-with left'
-    alt-ctrl-right = 'join-with right'
-    alt-ctrl-up = 'join-with up'
-    alt-ctrl-down = 'join-with down'
+    cmd-alt-ctrl-1 = 'workspace 1'
+    cmd-alt-ctrl-2 = 'workspace 2'
+    cmd-alt-ctrl-3 = 'workspace 3'
+    cmd-alt-ctrl-4 = 'workspace 4'
+    cmd-alt-ctrl-5 = 'workspace 5'
+    cmd-alt-ctrl-6 = 'workspace 6'
+    cmd-alt-ctrl-7 = 'workspace 7'
+    cmd-alt-ctrl-8 = 'workspace 8'
+    cmd-alt-ctrl-9 = 'workspace 9'
+    cmd-alt-ctrl-0 = 'workspace 10'
+    cmd-alt-ctrl-shift-1 = 'move-node-to-workspace --focus-follows-window 1'
+    cmd-alt-ctrl-shift-2 = 'move-node-to-workspace --focus-follows-window 2'
+    cmd-alt-ctrl-shift-3 = 'move-node-to-workspace --focus-follows-window 3'
+    cmd-alt-ctrl-shift-4 = 'move-node-to-workspace --focus-follows-window 4'
+    cmd-alt-ctrl-shift-5 = 'move-node-to-workspace --focus-follows-window 5'
+    cmd-alt-ctrl-shift-6 = 'move-node-to-workspace --focus-follows-window 6'
+    cmd-alt-ctrl-shift-7 = 'move-node-to-workspace --focus-follows-window 7'
+    cmd-alt-ctrl-shift-8 = 'move-node-to-workspace --focus-follows-window 8'
+    cmd-alt-ctrl-shift-9 = 'move-node-to-workspace --focus-follows-window 9'
+    cmd-alt-ctrl-shift-0 = 'move-node-to-workspace --focus-follows-window 10'
+    cmd-alt-ctrl-tab = 'workspace --wrap-around next'
+    cmd-alt-ctrl-backtick = 'workspace-back-and-forth'
 
-    # Workspace navigation. Alt+0 maps to workspace 10, matching Omarchy's 1-10 model.
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-    alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
-    alt-6 = 'workspace 6'
-    alt-7 = 'workspace 7'
-    alt-8 = 'workspace 8'
-    alt-9 = 'workspace 9'
-    alt-0 = 'workspace 10'
-    alt-tab = 'workspace --wrap-around next'
-    alt-shift-tab = 'workspace --wrap-around prev'
-    alt-backtick = 'workspace-back-and-forth'
+    cmd-alt-ctrl-minus = 'resize smart -50'
+    cmd-alt-ctrl-equal = 'resize smart +50'
 
-    # Move windows to workspaces. Shift follows; Ctrl+Shift moves silently.
-    alt-shift-1 = 'move-node-to-workspace --focus-follows-window 1'
-    alt-shift-2 = 'move-node-to-workspace --focus-follows-window 2'
-    alt-shift-3 = 'move-node-to-workspace --focus-follows-window 3'
-    alt-shift-4 = 'move-node-to-workspace --focus-follows-window 4'
-    alt-shift-5 = 'move-node-to-workspace --focus-follows-window 5'
-    alt-shift-6 = 'move-node-to-workspace --focus-follows-window 6'
-    alt-shift-7 = 'move-node-to-workspace --focus-follows-window 7'
-    alt-shift-8 = 'move-node-to-workspace --focus-follows-window 8'
-    alt-shift-9 = 'move-node-to-workspace --focus-follows-window 9'
-    alt-shift-0 = 'move-node-to-workspace --focus-follows-window 10'
-    alt-ctrl-shift-1 = 'move-node-to-workspace 1'
-    alt-ctrl-shift-2 = 'move-node-to-workspace 2'
-    alt-ctrl-shift-3 = 'move-node-to-workspace 3'
-    alt-ctrl-shift-4 = 'move-node-to-workspace 4'
-    alt-ctrl-shift-5 = 'move-node-to-workspace 5'
-    alt-ctrl-shift-6 = 'move-node-to-workspace 6'
-    alt-ctrl-shift-7 = 'move-node-to-workspace 7'
-    alt-ctrl-shift-8 = 'move-node-to-workspace 8'
-    alt-ctrl-shift-9 = 'move-node-to-workspace 9'
-    alt-ctrl-shift-0 = 'move-node-to-workspace 10'
+    cmd-alt-ctrl-semicolon = 'mode service'
 
-    # Monitor controls keep priority over Omarchy's former-workspace Ctrl+Alt+Tab collision.
-    alt-ctrl-tab = 'focus-monitor --wrap-around next'
-    alt-ctrl-shift-tab = 'focus-monitor --wrap-around prev'
-    alt-ctrl-shift-left = 'move-workspace-to-monitor --wrap-around left'
-    alt-ctrl-shift-right = 'move-workspace-to-monitor --wrap-around right'
-    alt-ctrl-shift-up = 'move-workspace-to-monitor --wrap-around up'
-    alt-ctrl-shift-down = 'move-workspace-to-monitor --wrap-around down'
+# 'move' binding mode declaration.
+[mode.move.binding]
+    esc = 'mode main'
+    1 = ['move-node-to-workspace --focus-follows-window 1', 'mode main']
+    2 = ['move-node-to-workspace --focus-follows-window 2', 'mode main']
+    3 = ['move-node-to-workspace --focus-follows-window 3', 'mode main']
+    4 = ['move-node-to-workspace --focus-follows-window 4', 'mode main']
+    5 = ['move-node-to-workspace --focus-follows-window 5', 'mode main']
+    6 = ['move-node-to-workspace --focus-follows-window 6', 'mode main']
+    7 = ['move-node-to-workspace --focus-follows-window 7', 'mode main']
+    8 = ['move-node-to-workspace --focus-follows-window 8', 'mode main']
+    9 = ['move-node-to-workspace --focus-follows-window 9', 'mode main']
+    0 = ['move-node-to-workspace --focus-follows-window 10', 'mode main']
+    shift-1 = ['move-node-to-workspace 1', 'mode main']
+    shift-2 = ['move-node-to-workspace 2', 'mode main']
+    shift-3 = ['move-node-to-workspace 3', 'mode main']
+    shift-4 = ['move-node-to-workspace 4', 'mode main']
+    shift-5 = ['move-node-to-workspace 5', 'mode main']
+    shift-6 = ['move-node-to-workspace 6', 'mode main']
+    shift-7 = ['move-node-to-workspace 7', 'mode main']
+    shift-8 = ['move-node-to-workspace 8', 'mode main']
+    shift-9 = ['move-node-to-workspace 9', 'mode main']
+    shift-0 = ['move-node-to-workspace 10', 'mode main']
 
-    # Resize controls.
-    alt-minus = 'resize smart -50'
-    alt-equal = 'resize smart +50'
+# 'swap' binding mode declaration.
+[mode.swap.binding]
+    esc = 'mode main'
+    left = ['swap left', 'mode main']
+    right = ['swap right', 'mode main']
+    up = ['swap up', 'mode main']
+    down = ['swap down', 'mode main']
 
-    alt-shift-semicolon = 'mode service'
+# 'join' binding mode declaration.
+[mode.join.binding]
+    esc = 'mode main'
+    left = ['join-with left', 'mode main']
+    right = ['join-with right', 'mode main']
+    up = ['join-with up', 'mode main']
+    down = ['join-with down', 'mode main']
+
+# 'monitor' binding mode declaration.
+[mode.monitor.binding]
+    esc = 'mode main'
+    tab = ['focus-monitor --wrap-around next', 'mode main']
+    shift-tab = ['focus-monitor --wrap-around prev', 'mode main']
+    left = ['move-workspace-to-monitor --wrap-around left', 'mode main']
+    right = ['move-workspace-to-monitor --wrap-around right', 'mode main']
+    up = ['move-workspace-to-monitor --wrap-around up', 'mode main']
+    down = ['move-workspace-to-monitor --wrap-around down', 'mode main']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -190,10 +211,10 @@ on-mode-changed = []
     # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
     #s = ['layout sticky tiling', 'mode main']
 
-    alt-shift-left = ['join-with left', 'mode main']
-    alt-shift-down = ['join-with down', 'mode main']
-    alt-shift-up = ['join-with up', 'mode main']
-    alt-shift-right = ['join-with right', 'mode main']
+    left = ['join-with left', 'mode main']
+    down = ['join-with down', 'mode main']
+    up = ['join-with up', 'mode main']
+    right = ['join-with right', 'mode main']
 
 [[on-window-detected]]
     if.app-id = 'com.apple.finder'

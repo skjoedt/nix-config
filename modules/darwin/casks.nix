@@ -12,6 +12,7 @@ _:
 
   # Utility Tools
   "appcleaner"
+  "hammerspoon"
   "syncthing-app"
   "orbstack"
   # "amethyst" # Disabled while migrating to AeroSpace.

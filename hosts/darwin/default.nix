@@ -131,8 +131,8 @@ in
             };
 
             # Space hotkeys
-            # Disabled: AeroSpace owns Option + 1..0 for its own workspaces.
-            # Switch to Space 1 - option + 1
+            # Disabled: AeroSpace owns workspaces and Option must remain available for text input.
+            # Switch to Space 1 - Option + 1
             "118" = {
               enabled = false;
               value = {
@@ -144,7 +144,7 @@ in
                 type = "standard";
               };
             };
-            # Switch to Space 2 - option + 2
+            # Switch to Space 2 - Option + 2
             "119" = {
               enabled = false;
               value = {
@@ -156,7 +156,7 @@ in
                 type = "standard";
               };
             };
-            # Switch to Space 3 - option + 3
+            # Switch to Space 3 - Option + 3
             "120" = {
               enabled = false;
               value = {
@@ -168,7 +168,7 @@ in
                 type = "standard";
               };
             };
-            # Switch to Space 4 - option + 4
+            # Switch to Space 4 - Option + 4
             "121" = {
               enabled = false;
               value = {
@@ -180,7 +180,7 @@ in
                 type = "standard";
               };
             };
-            # Switch to Space 5 - option + 5
+            # Switch to Space 5 - Option + 5
             "122" = {
               enabled = false;
               value = {
@@ -192,7 +192,7 @@ in
                 type = "standard";
               };
             };
-            # Switch to Space 6 - option + 6
+            # Switch to Space 6 - Option + 6
             "123" = {
               enabled = false;
               value = {
@@ -204,7 +204,7 @@ in
                 type = "standard";
               };
             };
-            # Switch to Space 7 - option + 7
+            # Switch to Space 7 - Option + 7
             "124" = {
               enabled = false;
               value = {
@@ -216,7 +216,7 @@ in
                 type = "standard";
               };
             };
-            # Switch to Space 8 - option + 8
+            # Switch to Space 8 - Option + 8
             "125" = {
               enabled = false;
               value = {
@@ -417,8 +417,23 @@ in
       #};
 
     };
-    #keyboard = {
-    #  enableKeyMapping = true;
-    #};
+    keyboard = {
+      enableKeyMapping = true;
+      userKeyMapping = [
+        {
+          HIDKeyboardModifierMappingSrc = 30064771129; # Caps Lock
+          HIDKeyboardModifierMappingDst = 30064771181; # F18
+        }
+      ];
+    };
+  };
+
+  launchd.user.agents.hammerspoon.serviceConfig = {
+    ProgramArguments = [
+      "/usr/bin/open"
+      "-ga"
+      "Hammerspoon"
+    ];
+    RunAtLoad = true;
   };
 }

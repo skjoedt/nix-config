@@ -31,7 +31,7 @@ in
     syntaxHighlighting.enable = true;
     enableCompletion = true;
     shellAliases = {
-      k = "kubectl";
+      k = "kubecolor";
       v = "nvim";
       c = "opencode";
       ls = "eza -lh --group-directories-first --icons=auto";

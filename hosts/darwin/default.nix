@@ -17,6 +17,13 @@ in
     ../../modules/shared
   ];
 
+  home-manager.users.${user}.imports = [
+    ../../modules/shared/packages/core-cli.nix
+    ../../modules/shared/packages/cloud.nix
+    ../../modules/shared/packages/dev.nix
+    ../../modules/shared/packages/language-runtime.nix
+  ];
+
   ids.gids.nixbld = 350;
 
   # Setup user, packages, programs

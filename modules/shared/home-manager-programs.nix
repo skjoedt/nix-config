@@ -171,11 +171,6 @@ in
     };
   };
 
-  programs.mise = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
   programs.neovim = {
     enable = true;
     package = nixpkgs-unstable.neovim-unwrapped;

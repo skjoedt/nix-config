@@ -11,6 +11,11 @@ let
   );
 in
 {
+  programs.mise = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   home.packages = with pkgs; [
     bun
     myPython # Custom Python with packages

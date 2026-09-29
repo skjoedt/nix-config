@@ -5,6 +5,7 @@
     with pkgs;
     [
       mkcert # Create locally-trusted development certificates
+      netbird
     ]
   );
 }
